@@ -1,0 +1,101 @@
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export ZSH=$HOME/.oh-my-zsh
+
+# theme
+ZSH_THEME="frontcube-melkikh"
+UPDATE_ZSH_DAYS=13
+
+plugins=(
+	git
+	history-substring-search
+	# ssh-agent
+	pass
+)
+
+source $ZSH/oh-my-zsh.sh
+
+export LANG=en_US.UTF-8
+# bindkey "^[^[[D" backward-word
+# bindkey "^[^[[C" forward-word
+
+# Aliases
+
+alias l='ls -lFh'
+alias la='ls -lAFh'
+alias lt='ls -ltFh'
+alias ll='ls -lA'
+alias b='bat'
+
+alias grep='grep --color'
+alias diff='colordiff'
+
+alias -g H='| head'
+alias -g T='| tail'
+alias -g G='| grep'
+alias -g L="| less"
+alias -g C='| xclip -selection clipboard -t text/plain -i $f'
+
+alias v="vim ."
+alias s="subl"
+alias r="ranger"
+alias nc="netcat"
+alias j="jupyter-notebook"
+alias dkill='docker kill $(docker ps -q -l)'
+alias serve="python3 -m http.server --bind 127.0.0.1 8000"
+alias tf="terraform"
+alias k="kubectl"
+alias cq="cloudquery"
+
+# yandex aliases
+alias ya="$HOME/arcadia/ya"
+alias yo="ya tool yo"
+alias yt="ya tool yt"
+alias yav="ya vault"
+alias vmctl="ya tool qyp"
+alias yp="ya tool yp"
+alias dctl="ya tool dtcl"
+alias -g N="; ya notify"
+alias logbroker="ya tool logbroker"
+
+HISTSIZE=10000000
+SAVEHIST=10000000
+
+# exports
+export EDITOR=/usr/bin/vim
+
+# path
+export PATH="$PATH:$HOME/.bin"
+export PATH="$PATH:$HOME/.local/bin"
+
+# arcadia
+export GOPATH="$HOME/go"
+export ARCMOUNT_PATH="$HOME/arcadia"
+
+# if mountpoint -q "$ARCMOUNT_PATH"; then
+#   export GOROOT=$(ya tool go --print-toolchain-path)
+# else
+#   export GOROOT="/usr/lib/go/"
+# fi
+
+export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
+
+# npm
+export NPM_PACKAGES="${HOME}/.npm-packages"
+export PATH="$NPM_PACKAGES/bin:$PATH"
+
+# ssh
+[[ -S "$HOME/.ssh/auth_sock" ]] && export SSH_AUTH_SOCK="$HOME/.ssh/auth_sock"
+
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# The next line updates PATH for Yandex Cloud CLI.
+if [ -f '/Users/melkikh/yandex-cloud/path.bash.inc' ]; then source '/Users/melkikh/yandex-cloud/path.bash.inc'; fi
+
+# The next line enables shell command completion for yc.
+if [ -f '/Users/melkikh/yandex-cloud/completion.zsh.inc' ]; then source '/Users/melkikh/yandex-cloud/completion.zsh.inc'; fi
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
