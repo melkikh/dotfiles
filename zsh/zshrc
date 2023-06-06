@@ -37,7 +37,7 @@ alias -g C='| xclip -selection clipboard -t text/plain -i $f'
 
 alias v="vim ."
 alias s="subl"
-alias r="ranger"
+alias r=". ranger"
 alias nc="netcat"
 alias j="jupyter-notebook"
 alias dkill='docker kill $(docker ps -q -l)'
