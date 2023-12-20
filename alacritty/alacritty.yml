@@ -148,6 +148,8 @@ key_bindings:
   - { key: W, mods: Command, chars: "\x02x" } # kill the current pane
   - { key: Tab, mods: Control, chars: "\x02n" } # switch to next tmux window
   - { key: Tab, mods: Control|Shift, chars: "\x02n" } # switch to previous tmux window
+  - { key: Semicolon, mods: Command, chars: "\x02:" } # enter the tmux command prompt
+  - { key: B, mods: Command, chars: "\x02b" } # (custom) break pane
   - { key: Key1, mods: Command, chars: "\x021" } # select tmux window 1
   - { key: Key2, mods: Command, chars: "\x022" } #                ... 2
   - { key: Key3, mods: Command, chars: "\x023" } #                ... 3
