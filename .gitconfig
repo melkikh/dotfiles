@@ -1,0 +1,10 @@
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+[user]
+	email = melkikh@toloka.ai
+	name = melkikh
+[push]
+	autoSetupRemote = true

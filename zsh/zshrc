@@ -39,7 +39,7 @@ alias v="vim ."
 alias s="subl"
 alias r=". ranger"
 alias nc="netcat"
-alias j="jupyter-notebook"
+alias j="docker run -it --rm -p 8888:8888 -v "${PWD}":/home/jovyan/work quay.io/jupyter/datascience-notebook:2024-03-14"
 alias dkill='docker kill $(docker ps -q -l)'
 alias serve="python3 -m http.server --bind 127.0.0.1 8000"
 alias tf="terraform"
@@ -96,6 +96,8 @@ if [ -f '/Users/melkikh/yandex-cloud/path.bash.inc' ]; then source '/Users/melki
 # The next line enables shell command completion for yc.
 if [ -f '/Users/melkikh/yandex-cloud/completion.zsh.inc' ]; then source '/Users/melkikh/yandex-cloud/completion.zsh.inc'; fi
 
+# libpq
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
